@@ -1,0 +1,23 @@
+.flex{
+    display: flex;
+}
+.flexCC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flexCE{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.flexSB{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flexEC{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

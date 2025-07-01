@@ -1,25 +1,29 @@
 import React from 'react';
 import { Button, ConfigProvider, Input, Space, theme } from 'antd';
 import Layout from './layout/index'
+import { ThemeProvider, useTheme } from './theme/ThemeContext';
+import { getThemeConfig } from './theme/themeConfig';
+import {
+  RouterProvider,
+} from "react-router-dom";
+import router from './router/index.tsx'
 // 默认算法 theme.defaultAlgorithm
 // 暗色算法 theme.darkAlgorithm
 // 紧凑算法 theme.compactAlgorithm
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      // 1. 单独使用暗色算法
-      algorithm: theme.darkAlgorithm,
+const ThemedApp: React.FC = () => {
+  const { currentTheme } = useTheme();
+  const themeConfig = getThemeConfig(currentTheme);
 
-      // 2. 组合使用暗色算法与紧凑算法
-      // algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
-    }}
-  >
-    <Layout >
-    </Layout>
-    {/* <Space>
-      <Input placeholder="Please Input" />
-      <Button type="primary">Submit</Button>
-    </Space> */}
-  </ConfigProvider>
+  return (
+    <ConfigProvider theme={themeConfig}>
+      {/* <Layout /> */}
+      <RouterProvider router={router} />
+    </ConfigProvider>
+  );
+};
+const App: React.FC = () => (
+  <ThemeProvider>
+    <ThemedApp />
+  </ThemeProvider>
 );
 export default App;

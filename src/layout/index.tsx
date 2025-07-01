@@ -8,13 +8,14 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { Outlet, Route, useHref, useNavigate } from 'react-router-dom';
-import { SearchOutlined,BellOutlined,GlobalOutlined,MoonOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Outlet,  useNavigate } from 'react-router-dom';
+import Header from './header'
+import { useTheme } from '../theme/ThemeContext';
+
 {/* <MoonOutlined /> */}
 {/* <GlobalOutlined /> */}
 // import
-const { Header, Content, Footer, Sider } = Layout;
+const {  Content, Footer, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -56,24 +57,16 @@ const App: React.FC = () => {
       navigate(e.key);
       console.log('1',e)
   }
+    const { currentTheme } = useTheme();
+
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+    <Layout  style={{ minHeight: '100vh' }}>
+      <Sider theme={currentTheme} collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} onClick={goTo} mode="inline" items={items} />
+        <Menu theme={currentTheme} defaultSelectedKeys={['1']} onClick={goTo} mode="inline" items={items} />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} >
-          {/* <div>嗖嗖</div> */}
-        
-                  <Button type="primary" shape="circle" icon={<SearchOutlined />} />
-                  <Button type="primary" shape="circle" icon={<BellOutlined />} />
-                  <Button type="primary" shape="circle" icon={<GlobalOutlined />} />
-                  <Button type="primary" shape="circle" icon={<MoonOutlined />} />
-
-                  {/* <a-button type="primary" shape="circle" :icon="h(SearchOutlined)" /> */}
-
-          </Header>
+        <Header />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
