@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './assets/css/common.css'
 import './assets/css/theme.less'
+import './assets/css/index.less'
 import App from './App.tsx'
 import './mock/index.js'
 

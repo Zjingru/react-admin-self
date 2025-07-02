@@ -6,7 +6,7 @@ export const getThemeConfig = (themeMode: 'light' | 'dark'): ThemeConfig => {
     return {
         algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
-            colorBgContainer: isDark ? '#001628' : '#ffffff',
+            // colorBgContainer: isDark ? '#001628' : '#ffffff',
             colorPrimary: isDark ? '#0fbcf9' : '#1890ff',
             colorBgBase: isDark ? '#1a1a1a' : '#ffffff',
             colorTextBase: isDark ? '#e6e6e6' : '#333333',
@@ -18,11 +18,14 @@ export const getThemeConfig = (themeMode: 'light' | 'dark'): ThemeConfig => {
                 algorithm: true,
             },
             Card: {
-                colorBgContainer: isDark ? '#222' : '#fff',
+                bodyPadding:14
+                // colorBgContainer: isDark ? '#222' : '#fff',
             },
             Layout: {
-                colorBgHeader: isDark ? '#1a1a1a' : '#ffffff',
-                colorBgBody: isDark ? '#141414' : '#f5f5f5',
+                headerBg: isDark ? '#1a1a1a' : '#ffffff',
+                bodyBg: isDark ? '#141414' : '#f5f5f5',
+                siderBg: isDark ? '#2e2e2e' : '#ffffff',
+                triggerBg: isDark ? '#2e2e2e' : '#fff',
             }
         }
     };

@@ -34,6 +34,7 @@ function getItem(
 }
 
 const items: MenuItem[] = [
+  getItem('首页','/home'),
   getItem('完整项目', '1',<PieChartOutlined />,[
     getItem('电商产品页', '/curdProject/goods'),
   ]),
@@ -63,7 +64,7 @@ const App: React.FC = () => {
     <Layout  style={{ minHeight: '100vh' }}>
       <Sider theme={currentTheme} collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <div className="demo-logo-vertical" />
-        <Menu theme={currentTheme} defaultSelectedKeys={['1']} onClick={goTo} mode="inline" items={items} />
+        <Menu  defaultSelectedKeys={['/home']} onClick={goTo} mode="inline" items={items} />
       </Sider>
       <Layout>
         <Header />

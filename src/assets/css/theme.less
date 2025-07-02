@@ -13,7 +13,6 @@ html, body, #root {
 // @import '~antd/dist/antd.less'; // 引入官方 LESS 样式入口文件
  
 // 修改 colorBgContainer 变量
-@color-bg-container: #000;
 /* 明亮主题CSS变量 */
 [data-theme="light"] {
   --primary-color: #1890ff;
@@ -31,16 +30,22 @@ html, body, #root {
   --primary-color: #0fbcf9;
   --text-color: #e6e6e6;
   --text-secondary: #aaa;
-  --bg-color: #002140;
+  // --bg-color: #002140;
   --card-bg: #222;
   --border-color: #444;
   --input-bg: #2a2a2a;
   --header-border: 1px solid #333;
-  --color-bg-container:#001628
+  // --color-bg-container:#001628
 }
 /* 在你的组件的 CSS 文件中 */
 :global(.ant-layout) {
   background-color: #000;
+}
+.ant-menu-light.ant-menu-root.ant-menu-inline{
+  border-inline-end: none !important;
+}
+.ant-layout-sider-light{
+  border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
 }
 body {
   background-color: var(--bg-color);

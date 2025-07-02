@@ -5,7 +5,7 @@ import ThemeSwitcher from '../components/ThemeSwitcher'
 const { Header } = Layout;
 import { SearchOutlined,BellOutlined,GlobalOutlined,MoonOutlined } from '@ant-design/icons';
 const headerVal = {
-    backgroundColor:'#fff',
+    // backgroundColor:'#fff',
 }
 const App: React.FC = () => {
     return (
