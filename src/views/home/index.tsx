@@ -1,7 +1,8 @@
-import { Card, Statistic, Flex } from 'antd';
+import { Card, Statistic, Flex, Col, Row } from 'antd';
 import dayjs from 'dayjs';
 import './index.less'
-// import BarChartExample from './com/echart1'
+import BarChartExample from './com/echart1'
+import LineChartExample from './com/echart2'
 import { InfoCircleOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 const baseStyle: React.CSSProperties = {
     width: '25%',
@@ -14,9 +15,8 @@ const Home: React.FC = () => {
                 <span className='mr10'>{dayjs().format('YYYY-MM-DD HH:mm:ss')}</span>
                 <span>星期{dayjs().weekday()}</span>
             </Card>
-            <div className="mt12">
-
-                <Flex gap="middle">
+            <Row gutter={[16, 16]} className='mt12 rows'>
+                <Col span={6}>
                     <Card
                         extra={<InfoCircleOutlined />}
                         title="销售额"
@@ -30,9 +30,9 @@ const Home: React.FC = () => {
                         ]}
                     >
                         <Statistic value={112893} />
-                        <div className='flex'>
+                        <div className='flex mt10'>
                             <Statistic
-                                className='flex'
+                                className='flex '
                                 title="月环"
                                 value={11.28}
                                 precision={2}
@@ -51,7 +51,9 @@ const Home: React.FC = () => {
                             />
                         </div>
                     </Card>
-                     <Card
+                </Col>
+                <Col span={6}>
+                    <Card
                         extra={<InfoCircleOutlined />}
                         title="销售额"
                         classNames={{
@@ -64,7 +66,7 @@ const Home: React.FC = () => {
                         ]}
                     >
                         <Statistic value={112893} />
-                        <div className='flex'>
+                        <div className='flex mt10'>
                             <Statistic
                                 className='flex'
                                 title="月环"
@@ -85,11 +87,39 @@ const Home: React.FC = () => {
                             />
                         </div>
                     </Card>
-                    {/* <BarChartExample /> */}
-                </Flex>
+                </Col>
+                <Col span={6}>
+                    <Card
+                        extra={<InfoCircleOutlined />}
+                        title="订单数"
+                        classNames={{
+                            header: 'card-header',
+                        }}
+                        actions={[
+                            <p className="text-left pl12">日访问量  ¥12,893</p>
+                        ]}>
+                        <BarChartExample />
+                    </Card></Col>
+                <Col span={6}>
+                    <Card
+                        extra={<InfoCircleOutlined />}
+                        title="UV"
+                        classNames={{
+                            header: 'card-header',
+                        }}
+                        actions={[
+                            <p className="text-left pl12">转换率  60%</p>
+                        ]}>
+                        <LineChartExample />
+                    </Card>
+                </Col>
+            </Row>
 
-            </div>
-
+            <Card className='mt12'>
+                <p>Card content</p>
+                <p>Card content</p>
+                <p>Card content</p>
+            </Card>
         </div>
     )
 }

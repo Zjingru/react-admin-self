@@ -1,10 +1,10 @@
 // src/components/BarChartExample.tsx
 import React, { useState, useEffect } from 'react';
-import BaseChart from '../com/echart1.tsx';
+import BaseChart from '../../../components/echartCom';
 import type { EChartsOption } from 'echarts';
 import * as echarts from 'echarts';
 const BarChartExample: React.FC = () => {
-    const [data, setData] = useState<number[]>([140, 232, 101, 264, 90, 340, 250, 222]);
+    const [data, setData] = useState<number[]>([140, 232, 101, 1000, 90, 340, 250, 222]);
     const [loading, setLoading] = useState(false);
     // 图表配置
     const getOption = (): EChartsOption => ({
@@ -16,6 +16,7 @@ const BarChartExample: React.FC = () => {
             left: '3%',
             right: '4%',
             bottom: '3%',
+            top:'1%'
         },
         xAxis: [
             {
@@ -33,7 +34,7 @@ const BarChartExample: React.FC = () => {
         ],
         series: [
             {
-                name: 'Line 1',
+                // name: 'Line 1',
                 type: 'line',
                 stack: 'Total',
                 smooth: true,
@@ -76,7 +77,7 @@ const BarChartExample: React.FC = () => {
     };
 
     return (
-            <div style={{ height: 400 }}>
+            <div style={{ height: '90px',width:'100%' }}>
                 <BaseChart option={getOption()} />
             </div>
     );
