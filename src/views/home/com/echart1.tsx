@@ -12,11 +12,17 @@ const BarChartExample: React.FC = () => {
         legend: {
             data: ['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']
         },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
         grid: {
             left: '3%',
             right: '4%',
             bottom: '3%',
-            top:'1%'
+            top: '1%'
         },
         xAxis: [
             {
@@ -77,9 +83,9 @@ const BarChartExample: React.FC = () => {
     };
 
     return (
-            <div style={{ height: '90px',width:'100%' }}>
-                <BaseChart option={getOption()} />
-            </div>
+        <div style={{ height: '90px', width: '100%' }}>
+            <BaseChart option={getOption()} />
+        </div>
     );
 };
 

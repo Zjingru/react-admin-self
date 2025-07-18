@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import LayoutPage from '../layout/index';
 import Goods from '../views/curdProject/goods/index'
 import Home from '../views/home/index'
+import List from '@/views/curdProject/list/index'
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,9 @@ const routes = createBrowserRouter([
         element: <Goods />,
 
         // loader: ({ params }) => fetch(`/api/products/${params.id}`)
+      } ,{
+        path:'/curdProject/list',
+        element:<List />
       }
     ]
   }

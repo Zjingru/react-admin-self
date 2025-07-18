@@ -37,6 +37,7 @@ const items: MenuItem[] = [
   getItem('首页','/home'),
   getItem('完整项目', '1',<PieChartOutlined />,[
     getItem('电商产品页', '/curdProject/goods'),
+    getItem('电商列表页', '/curdProject/list'),
   ]),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('User', 'sub1', <UserOutlined />, [

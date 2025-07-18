@@ -12,6 +12,12 @@ const LineChartExample: React.FC = () => {
             show: false,
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
         },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
         grid: {
             top: '1%',
             left: 0,

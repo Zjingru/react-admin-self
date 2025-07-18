@@ -17,18 +17,18 @@ const items: TabsProps['items'] = [
     }
 ];
 
-const tabs1: React.FC = () => {
-    return (
-        <div>
-            <p>热门商品</p>
-        </div>
-    )
-}
+// const tabs1: React.FC = () => {
+//     return (
+//         <div>
+//             <p>热门商品</p>
+//         </div>
+//     )
+// }
 const App: React.FC = () => {
     return (
         <div>
             <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
-            <tabs1 />
+            {/* <tabs1 /> */}
         </div>
     )
 }
