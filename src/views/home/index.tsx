@@ -1,13 +1,26 @@
-import { Card, Statistic, Flex, Col, Row } from 'antd';
+import { Card, Statistic, Flex, Col, Row, Radio } from 'antd';
 import dayjs from 'dayjs';
 import './index.less'
 import BarChartExample from './com/echart1'
 import LineChartExample from './com/echart2'
 import BarCom from './com/BarCom';
 import HotSearch from './com/hotSearch';
+import PieCom from './com/pieCom';
+import type { RadioChangeEvent } from 'antd';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import { InfoCircleOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
-
+import React, { useState } from 'react';
+const optionsWithDisabled: CheckboxGroupProps<string>['options'] = [
+    { label: '全部渠道', value: 'Apple', className: 'label-1' },
+    { label: '线上', value: 'Pear', className: 'label-2' },
+    { label: '书店', value: 'Orange', className: 'label-3' },
+];
 const Home: React.FC = () => {
+    const [value4, setValue4] = useState('Apple');
+    const onChange4 = ({ target: { value } }: RadioChangeEvent) => {
+        console.log('radio4 checked', value);
+        setValue4(value);
+    };
     return (
         <div>
             <Card>
@@ -128,7 +141,14 @@ const Home: React.FC = () => {
                 </Col>
                 <Col span={12}>
                     <Card title="销售额类比占额">
-
+                        <Radio.Group
+                            options={optionsWithDisabled}
+                            onChange={onChange4}
+                            value={value4}
+                            optionType="button"
+                            buttonStyle="solid"
+                        />
+                        <PieCom/>
                     </Card>
                 </Col>
             </Row>
