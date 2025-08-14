@@ -4,7 +4,7 @@ import Layout from './layout/index'
 import { ThemeProvider, useTheme } from './theme/ThemeContext';
 import { getThemeConfig } from './theme/themeConfig';
 import {
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom";
 import router from './router/index.tsx'
 // 默认算法 theme.defaultAlgorithm
@@ -17,7 +17,9 @@ const ThemedApp: React.FC = () => {
   return (
     <ConfigProvider theme={themeConfig}>
       {/* <Layout /> */}
-      <RouterProvider router={router} />
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
     </ConfigProvider>
   );
 };

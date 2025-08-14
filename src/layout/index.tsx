@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -8,14 +8,14 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { Outlet,  useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Header from './header'
 import { useTheme } from '../theme/ThemeContext';
 
-{/* <MoonOutlined /> */}
-{/* <GlobalOutlined /> */}
+{/* <MoonOutlined /> */ }
+{/* <GlobalOutlined /> */ }
 // import
-const {  Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -34,10 +34,11 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('首页','/home'),
-  getItem('完整项目', '1',<PieChartOutlined />,[
+  getItem('首页', '/home'),
+  getItem('完整项目', '1', <PieChartOutlined />, [
     getItem('电商产品页', '/curdProject/goods'),
     getItem('电商列表页', '/curdProject/list'),
+    getItem('待办事项', '/curdProject/todolist')
   ]),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('User', 'sub1', <UserOutlined />, [
@@ -55,17 +56,26 @@ const App: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   const navigate = useNavigate();
-  const goTo = (e:any)=>{
-      navigate(e.key);
-      console.log('1',e)
+  const goTo = (e: any) => {
+    navigate(e.key);
+    console.log('1', e)
   }
-    const { currentTheme } = useTheme();
+  useEffect(() => {
+    // 页面初始化后执行的逻辑
+    // 例如：加载数据、执行认证检查等
+    console.log('页面已初始化，即将跳转...');
 
+    // 在这里执行跳转
+    // navigate('/home'); // 跳转到 /home 页面
+    // 或者，带参数跳转
+    navigate('/home', { state: { message: '来自初始化页面的问候' } });
+  }, [navigate]);
+  const { currentTheme } = useTheme();
   return (
-    <Layout  style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Sider theme={currentTheme} collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <div className="demo-logo-vertical" />
-        <Menu  defaultSelectedKeys={['/home']} onClick={goTo} mode="inline" items={items} />
+        <Menu defaultSelectedKeys={['/home']} onClick={goTo} mode="inline" items={items} />
       </Sider>
       <Layout>
         <Header />
