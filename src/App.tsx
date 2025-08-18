@@ -12,7 +12,6 @@ import router from './router/index.tsx'
 const ThemedApp: React.FC = () => {
   const { currentTheme } = useTheme();
   const themeConfig = getThemeConfig(currentTheme);
-
   return (
     <ConfigProvider theme={themeConfig}>
       {/* <Layout /> */}
