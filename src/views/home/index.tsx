@@ -1,5 +1,7 @@
-import { Card, Statistic, Flex, Col, Row, Radio } from 'antd';
+import { Card, Statistic, Col, Row, Radio } from 'antd';
 import dayjs from 'dayjs';
+import weekday from 'dayjs/plugin/weekday';
+dayjs.extend(weekday);
 import './index.less'
 import BarChartExample from './com/echart1'
 import LineChartExample from './com/echart2'
@@ -11,9 +13,9 @@ import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import { InfoCircleOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 const optionsWithDisabled: CheckboxGroupProps<string>['options'] = [
-    { label: '全部渠道', value: 'Apple', className: 'label-1' },
-    { label: '线上', value: 'Pear', className: 'label-2' },
-    { label: '书店', value: 'Orange', className: 'label-3' },
+    { label: '全部渠道', value: 'Apple' },
+    { label: '线上', value: 'Pear' },
+    { label: '书店', value: 'Orange' },
 ];
 const Home: React.FC = () => {
     const [value4, setValue4] = useState('Apple');

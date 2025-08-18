@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BaseChart from '@/components/echartCom';
 import type { EChartsOption } from 'echarts';
-import ProTable from '@/components/ProTable';
+import ProTableCom from '@/components/proTable';
 interface Product {
     id: string;
     name: string;
@@ -53,7 +53,7 @@ const HotSearch: React.FC = () => {
             }
         ]
     });
-    const [showPagination, setShowPagination] = useState({
+    const [showPagination, _setShowPagination] = useState({
         pagination: {
             current: 1,
             pageSize: 10,
@@ -117,7 +117,7 @@ const HotSearch: React.FC = () => {
                 </div>
             </div>
             <div>
-                <ProTable<Product>
+                <ProTableCom<Product>
                     dataSource={products}
                     columns={columns}
                     rowKey="id"

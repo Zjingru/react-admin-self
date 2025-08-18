@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, ConfigProvider, Input, Space, theme } from 'antd';
-import Layout from './layout/index'
+import { ConfigProvider } from 'antd';
 import { ThemeProvider, useTheme } from './theme/ThemeContext';
 import { getThemeConfig } from './theme/themeConfig';
 import {

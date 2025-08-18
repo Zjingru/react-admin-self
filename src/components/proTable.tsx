@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Checkbox, Pagination, Button, Space } from 'antd';
-import type { ColumnsType, TableProps, TableRowSelection } from 'antd/es/table';
+import { Table,  Pagination} from 'antd';
+import type { ColumnsType, TableProps  } from 'antd/es/table';
+// import TableRowSelection from 'antd/es/table'
+import type { TableRowSelection } from 'antd/es/table/interface'; // Correct import for TableRowSelection type
 import type { PaginationProps } from 'antd/es/pagination';
 
 interface ProTableProps<T> {
@@ -23,7 +25,7 @@ interface ProTableProps<T> {
   style?: React.CSSProperties;
 }
 
-function ProTable<T extends object>({
+function ProTableCom<T extends object>({
   dataSource,
   columns,
   rowKey,
@@ -39,7 +41,7 @@ function ProTable<T extends object>({
   // 处理排序状态
   const [sortedInfo, setSortedInfo] = useState<{
     field?: React.Key | readonly React.Key[];
-    order?: 'ascend' | 'descend';
+    order?: string;
   }>({});
   
   // 处理分页
@@ -57,14 +59,14 @@ function ProTable<T extends object>({
   }, [rowSelection?.selectedRowKeys]);
   
   // 处理排序变化
-  const handleChange: TableProps<T>['onChange'] = (pagination, filters, sorter) => {
+  const handleChange: TableProps<T>['onChange'] = (_pagination, _filters, sorter) => {
     if (Array.isArray(sorter)) {
       // 多列排序处理
       console.log('Multiple sorters:', sorter);
     } else {
       setSortedInfo({
         field: sorter.field,
-        order: sorter.order,
+        order: typeof sorter.order === 'string' ? sorter.order : undefined,
       });
     }
   };
@@ -113,9 +115,19 @@ function ProTable<T extends object>({
   const processedColumns = showSorter 
     ? columns.map(col => {
         if (col.sorter) {
+          let sortOrder: 'ascend' | 'descend' | undefined;
+          if (sortedInfo.field === col.key) {
+            if (sortedInfo.order === 'ascend' || sortedInfo.order === 'descend') {
+              sortOrder = sortedInfo.order;
+            } else {
+              sortOrder = undefined;
+            }
+          } else {
+            sortOrder = undefined;
+          }
           return {
             ...col,
-            sortOrder: sortedInfo.field === col.key ? sortedInfo.order : null,
+            sortOrder,
           };
         }
         return col;
@@ -168,4 +180,4 @@ function ProTable<T extends object>({
   );
 }
 
-export default ProTable;
+export default ProTableCom;

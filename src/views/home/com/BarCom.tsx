@@ -17,7 +17,7 @@ const BarCom: React.FC = () => {
             label: '访问量',
         }
     ];
-    let data = Array(12).fill(0).map((e,inx)=>inx+1+'月')
+    let data = Array(12).fill(0).map((_e,inx)=>inx+1+'月')
     console.log(data,'jjj')
     // 12.map((e)=>{
 

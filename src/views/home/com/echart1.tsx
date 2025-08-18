@@ -1,11 +1,11 @@
 // src/components/BarChartExample.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BaseChart from '../../../components/echartCom';
 import type { EChartsOption } from 'echarts';
 import * as echarts from 'echarts';
 const BarChartExample: React.FC = () => {
-    const [data, setData] = useState<number[]>([140, 232, 101, 1000, 90, 340, 250, 222]);
-    const [loading, setLoading] = useState(false);
+    const [data, _setData] = useState<number[]>([140, 232, 101, 1000, 90, 340, 250, 222]);
+    const [_loading, _setLoading] = useState(false);
     // 图表配置
     const getOption = (): EChartsOption => ({
         color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
@@ -70,17 +70,17 @@ const BarChartExample: React.FC = () => {
     });
 
     // 模拟数据更新
-    const refreshData = () => {
-        setLoading(true);
-        setTimeout(() => {
-            setData(
-                Array(6)
-                    .fill(0)
-                    .map(() => Math.round(Math.random() * 200))
-            );
-            setLoading(false);
-        }, 800);
-    };
+    // const refreshData = () => {
+    //     setLoading(true);
+    //     setTimeout(() => {
+    //         setData(
+    //             Array(6)
+    //                 .fill(0)
+    //                 .map(() => Math.round(Math.random() * 200))
+    //         );
+    //         setLoading(false);
+    //     }, 800);
+    // };
 
     return (
         <div style={{ height: '90px', width: '100%' }}>

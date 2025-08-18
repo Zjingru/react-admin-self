@@ -3,7 +3,7 @@ import React from 'react';
 import LayoutPage from '../layout/index';
 import Goods from '../views/curdProject/goods/index'
 import Home from '../views/home/index'
-import List from '@/views/curdProject/list/index'
+import List from '../views/curdProject/list/index'
 const protectedLoader = () => {
   const token = localStorage.getItem('token');
   if (!token) {

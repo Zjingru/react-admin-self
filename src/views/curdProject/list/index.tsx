@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProTable from '@/components/ProTable';
+import ProTable from '@/components/proTable';
 import { Button, Space } from 'antd';
 
 interface Product {
@@ -103,7 +103,7 @@ const ProductTableExample = () => {
           已选择 {selectedRowKeys.length} 项: 
           {selectedRowKeys.map(key => (
             <span key={key} style={{ marginLeft: 8, padding: '2px 8px', background: '#e6f4ff', borderRadius: 4 }}>
-              {key}
+              {String(key)}
             </span>
           ))}
         </div>

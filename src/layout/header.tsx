@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Layout, Divider, Avatar, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 import './index.css'
 import ThemeSwitcher from '../components/ThemeSwitcher'
 const { Header } = Layout;
-import { SearchOutlined, BellOutlined, GlobalOutlined, MoonOutlined } from '@ant-design/icons';
+import { SearchOutlined, BellOutlined, GlobalOutlined } from '@ant-design/icons';
 const headerVal = {
     // backgroundColor:'#fff',
 }
@@ -47,7 +47,7 @@ const App: React.FC = () => {
             <Divider type="vertical" />
             <Dropdown menu={{ items, onClick: clickDropItem }} >
                 <a onClick={(e) => e.preventDefault()}>
-                    <Avatar style={{ backgroundColor: '#f56a00', verticalAlign: 'middle' }} size={'medium'} gap={4}>
+                    <Avatar style={{ backgroundColor: '#f56a00', verticalAlign: 'middle' }} size="default" gap={4}>
                         user
                     </Avatar>
                 </a>
