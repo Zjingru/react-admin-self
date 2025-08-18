@@ -2,6 +2,7 @@
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
+    "homepage": "https://zjingru.github.io/react-admin-self",
   "type": "module",
   "scripts": {
     "dev": "vite",
